@@ -3,7 +3,7 @@
 int main(){
     Lista lista;
     Funcionario *busca;
-    char nome[50];
+    char nome[MAXNAME];
     int user_op = 0;
     init_lista(&lista);
     ler_arquivo(&lista);
@@ -26,7 +26,8 @@ int main(){
             break;
         case 3:
             printf("Digite o nome: ");
-            gets(nome);
+            fgets(nome, MAXNAME, stdin);
+            nome[strcspn(nome, "\n")] = '\0';
             editar_funcionario(&lista, nome);
             break;
         case 4:

@@ -7,6 +7,8 @@
 #define MALLOCERROR "Erro ao alocar memoria dinamicamente.\n"
 #define NOTFOUND    "Funcionario nao encontrado.\n"
 #define DATAERROR   "Erro ao abrir/criar arquivo.\n"
+#define MAXNAME     50
+#define MAXCARGO    30
 
 typedef struct funcionario{
     char nome[50];
@@ -41,15 +43,22 @@ void init_lista(Lista *ptr){
 
 Funcionario ler_funcionario(){
     Funcionario f;
+
     printf("Nome: ");
-    gets(f.nome);
+    fgets(f.nome,MAXNAME,stdin);
+    f.nome[strcspn(f.nome, "\n")] = '\0';
+
     printf("Idade: ");
-    scanf("%d", &f.idade);
+    scanf("%d", &f.idade); 
     fflush(stdin);
+
     printf("Cargo: ");
-    gets(f.cargo);
+    fgets(f.cargo,MAXCARGO,stdin);
+    f.cargo[strcspn(f.cargo, "\n")] = '\0';
+
     printf("Salário: ");
     scanf("%f", &f.salario);
+
     return f;
 }
 
