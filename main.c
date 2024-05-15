@@ -32,7 +32,8 @@ int main(){
             break;
         case 4:
             printf("Digite o nome: ");
-            gets(nome);
+            fgets(nome, MAXNAME, stdin);
+            nome[strcspn(nome, "\n")] = '\0';            
             busca = busca_funcionario(lista.inicio, nome);
             if (verifica_busca(busca)){
                 remover_funcionario(&lista, busca);
