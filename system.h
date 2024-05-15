@@ -414,7 +414,7 @@ void gerar_relatorio(Lista *lista){
         switch (user_op)
         {
         case 1:
-            fprintf(arq,"Ordenação --- alfabética\n\n");
+            fprintf(arq,"Ordenação --- alfabética\t%d funcionários\n\n", lista->TAM);
             break;
         case 2:
             fprintf(arq,"Ordenação --- idade\n\n");
